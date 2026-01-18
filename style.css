@@ -1,0 +1,156 @@
+:root {
+    --bg-dark: #0f172a;
+    --card-dark: #1e293b;
+    --accent-blue: #38bdf8;
+    --accent-gold: #fbbf24;
+    --text-light: #f8fafc;
+    --text-gray: #94a3b8;
+    --success: #22c55e;
+    --danger: #ef4444;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background: rgba(15, 23, 42, 0.9);
+    border-bottom: 1px solid #334155;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.logo { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; }
+.logo span { color: var(--accent-blue); }
+.date-badge { font-size: 0.8rem; color: var(--text-gray); background: #334155; padding: 4px 8px; border-radius: 4px; }
+
+/* Category Tabs */
+.category-tabs {
+    display: flex;
+    gap: 15px;
+    margin: 30px 0;
+    justify-content: center;
+}
+
+.tab-btn {
+    background: transparent;
+    border: 1px solid #334155;
+    color: var(--text-gray);
+    padding: 12px 30px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.tab-btn:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
+
+.tab-btn.active {
+    background: var(--accent-blue);
+    color: var(--bg-dark);
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+}
+
+/* Hero Card (Top Player) - UPDATED */
+.hero-card {
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid #334155;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-left { display: flex; align-items: center; }
+
+.hero-info h4 { color: var(--accent-gold); margin: 0; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
+.hero-info h1 { margin: 10px 0; font-size: 2.5rem; }
+
+/* NEW: Hero Image Styling */
+.hero-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-gold);
+    box-shadow: 0 0 25px rgba(251, 191, 36, 0.3); /* Gold glow effect */
+}
+
+.rank-badge-lg {
+    background: var(--accent-gold);
+    color: black;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin-right: 20px;
+}
+
+/* Table */
+.table-wrapper {
+    background: var(--card-dark);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.ranking-table { width: 100%; border-collapse: collapse; }
+.ranking-table th { background: #334155; color: var(--text-gray); font-size: 0.75rem; text-transform: uppercase; padding: 15px; text-align: left; }
+.ranking-table td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); vertical-align: middle; }
+.ranking-table tr:hover { background: rgba(255,255,255,0.02); }
+
+/* Table Columns */
+.center-text { text-align: center; }
+.rank-num { font-weight: 700; color: var(--text-light); text-align: center; }
+.rating-val { font-weight: 700; color: var(--accent-blue); }
+.career-best { color: var(--text-gray); font-size: 0.9rem; }
+.player-flex { display: flex; align-items: center; gap: 12px; }
+
+/* Avatars for table */
+.avatar-circle {
+    width: 35px; height: 35px;
+    background: #475569;
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+}
+
+/* Animations */
+.animate-row { animation: slideUp 0.4s ease forwards; opacity: 0; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Responsive - UPDATED */
+@media (max-width: 768px) {
+    .hero-card { flex-direction: column; text-align: center; gap: 25px; padding: 1.5rem; }
+    .hero-left { flex-direction: column; }
+    .rank-badge-lg { margin: 0 auto 15px auto; }
+    .hero-img { width: 100px; height: 100px; }
+    .category-tabs { flex-wrap: wrap; gap: 10px; }
+    .tab-btn { padding: 10px 20px; font-size: 0.8rem; flex: 1 1 auto; }
+}

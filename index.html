@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT Official Rankings</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="logo">PT<span>RANKINGS</span></div>
+        <div class="date-badge">Updated: Jan 2026</div>
+    </nav>
+
+    <main class="container">
+        
+        <div class="category-tabs">
+            <button class="tab-btn active" onclick="updateCategory('batting')">Batters</button>
+            <button class="tab-btn" onclick="updateCategory('bowling')">Bowlers</button>
+            <button class="tab-btn" onclick="updateCategory('allrounder')">All-Rounders</button>
+        </div>
+
+        <div id="hero-card" class="hero-card">
+            </div>
+
+        <div class="table-wrapper">
+            <table class="ranking-table">
+                <thead>
+                    <tr>
+                        <th class="center-text">Rank</th>
+                        <th class="center-text">Trend</th>
+                        <th>Player</th>
+                        <th>Team</th>
+                        <th>Rating</th>
+                        <th>Career Best</th>
+                    </tr>
+                </thead>
+                <tbody id="rankingBody">
+                    </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
